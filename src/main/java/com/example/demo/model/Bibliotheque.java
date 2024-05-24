@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,20 +10,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Bibliotheque {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id_biblio;
+	
 	private String nom;
 	private String ville;
 	private String adresse;
 	
-	@ManyToMany
-	@JoinTable( name = "bibliothequeProduit",joinColumns = @JoinColumn (referencedColumnName = "id_biblio"), 
-	inverseJoinColumns = @JoinColumn (referencedColumnName = "id_produit"))
-	private List<Produit[]> produits;	
+	@OneToMany(mappedBy = "biblio")
+    Set<BiblioProduit> biblioProduit;
 	
 	public Bibliotheque () {
 		super();

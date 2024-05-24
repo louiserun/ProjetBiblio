@@ -3,7 +3,7 @@ package com.example.demo.model;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Livre {
+public class Livre extends Produit {
 	private String Auteur;
 	private String Edition;
 	

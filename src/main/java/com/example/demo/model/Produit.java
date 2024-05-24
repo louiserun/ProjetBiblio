@@ -1,14 +1,9 @@
 package com.example.demo.model;
 
 import java.util.List;
+import java.util.Set;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 @Entity
 public class Produit {
@@ -18,11 +13,9 @@ public class Produit {
 	private String titre;
 	private String ISBN;
 	
-	@ManyToMany
-	@JoinTable( name = "bibliothequeProduit",joinColumns = @JoinColumn (referencedColumnName = "id_produit"), 
-	inverseJoinColumns = @JoinColumn (referencedColumnName = "id_biblio"))
-	private List<Bibliotheque[]> bibliotheques;	
 	
+	@OneToMany(mappedBy = "produit")
+    Set<BiblioProduit> biblioProduit;
 	
 	public Produit()
 	{
@@ -34,12 +27,6 @@ public class Produit {
 		ISBN = iSBN;
 	}
 	
-	public List<Bibliotheque[]> getBibliotheques() {
-		return bibliotheques;
-	}
-	public void setBibliotheques(List<Bibliotheque[]> bibliotheques) {
-		this.bibliotheques = bibliotheques;
-	}
 	
 	public int getId_produit() {
 		return id_produit;
