@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class Dvd extends Produit{
 	private String Realisateur;
 

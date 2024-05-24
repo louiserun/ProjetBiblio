@@ -14,13 +14,13 @@ import jakarta.persistence.ManyToMany;
 public class Produit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private int id_produit;
 	private String titre;
 	private String ISBN;
 	
 	@ManyToMany
-	@JoinTable( name = "bibliothequeProduit",joinColumns = @JoinColumn (referencedColumnName = "id"), 
-	inverseJoinColumns = @JoinColumn (referencedColumnName = "matricule"))
+	@JoinTable( name = "bibliothequeProduit",joinColumns = @JoinColumn (referencedColumnName = "id_produit"), 
+	inverseJoinColumns = @JoinColumn (referencedColumnName = "id_biblio"))
 	private List<Bibliotheque[]> bibliotheques;	
 	
 	
@@ -40,15 +40,12 @@ public class Produit {
 	public void setBibliotheques(List<Bibliotheque[]> bibliotheques) {
 		this.bibliotheques = bibliotheques;
 	}
-	@Override
-	public String toString() {
-		return "Produit [id=" + id + ", titre=" + titre + ", ISBN=" + ISBN + "]";
+	
+	public int getId_produit() {
+		return id_produit;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId_produit(int id_produit) {
+		this.id_produit = id_produit;
 	}
 	public String getTitre() {
 		return titre;
