@@ -6,6 +6,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Produit {
@@ -14,7 +17,12 @@ public class Produit {
 	private int id;
 	private String titre;
 	private String ISBN;
+	
+	@ManyToMany
+	@JoinTable( name = "bibliothequeProduit",joinColumns = @JoinColumn (referencedColumnName = "id"), 
+	inverseJoinColumns = @JoinColumn (referencedColumnName = "matricule"))
 	private List<Bibliotheque[]> bibliotheques;	
+	
 	
 	public Produit()
 	{
@@ -24,6 +32,13 @@ public class Produit {
 		super();
 		this.titre = titre;
 		ISBN = iSBN;
+	}
+	
+	public List<Bibliotheque[]> getBibliotheques() {
+		return bibliotheques;
+	}
+	public void setBibliotheques(List<Bibliotheque[]> bibliotheques) {
+		this.bibliotheques = bibliotheques;
 	}
 	@Override
 	public String toString() {
