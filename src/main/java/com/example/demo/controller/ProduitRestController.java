@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Produit;
 import com.example.demo.repository.ProduitRepository;
 
-@CrossOrigin(origins = "http://127.0.0.1:4200")
+/@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class ProduitRestController {
 	@Autowired ProduitRepository produitRepository;
