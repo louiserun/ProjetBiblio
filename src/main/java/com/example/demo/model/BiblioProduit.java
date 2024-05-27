@@ -18,7 +18,7 @@ public class BiblioProduit {
 
 	 @ManyToOne
 	 @MapsId("biblioId")
-	 @JoinColumn(name = "biblio_id")
+	 @JoinColumn(name = "id_produit")
 	 Bibliotheque biblio;
 
 	 int nb_exemplaire;

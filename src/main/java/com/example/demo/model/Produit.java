@@ -6,9 +6,10 @@ import java.util.Set;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Produit {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_produit;
 	private String titre;
 	private String ISBN;

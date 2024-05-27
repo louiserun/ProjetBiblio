@@ -15,9 +15,8 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Bibliotheque {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id_biblio;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_produit;
 	private String nom;
 	private String ville;
 	private String adresse;
@@ -29,6 +28,13 @@ public class Bibliotheque {
 		super();
 	}
 	
+	public Bibliotheque(String nom, String ville, String adresse) {
+		super();
+		this.nom = nom;
+		this.ville = ville;
+		this.adresse = adresse;
+	}
+
 	@Override
 	public String toString() {
 		return "Bibliotheque [nom=" + nom + ", ville=" + ville + ", adresse=" + adresse + "]";
