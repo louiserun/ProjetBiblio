@@ -3,6 +3,8 @@ package com.example.demo.model;
 import java.util.List;
 import java.util.Set;
 
+import org.antlr.v4.runtime.misc.NotNull;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class Produit {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_produit;
 	private String titre;
+	@Column(nullable = false)
 	private String ISBN;
 	
 	
