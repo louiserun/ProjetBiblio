@@ -19,7 +19,7 @@ import com.example.demo.model.Bibliotheque;
 import com.example.demo.model.Produit;
 import com.example.demo.repository.BibliothequeRepository;
 import com.example.demo.service.BibliothequeService;
-
+/**
 //@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class BiblioRestController {
@@ -48,3 +48,4 @@ public class BiblioRestController {
     	return "supprimé avec succès";
     }
 }
+**/

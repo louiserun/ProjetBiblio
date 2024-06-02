@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Livre;
 import com.example.demo.model.Produit;
 import com.example.demo.repository.LivreRepository;
-
+/*
 //@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class LivreRestController {
@@ -30,3 +30,4 @@ public class LivreRestController {
 		return livre;
 	}
 }
+*/

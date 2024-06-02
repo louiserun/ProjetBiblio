@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Livre;
 import com.example.demo.repository.DvdRepository;
-
+/*
 //@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class DvdRestController {
@@ -28,3 +28,4 @@ public class DvdRestController {
 		return dvd;
 	}
 }
+*/
