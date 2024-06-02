@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.model.Bibliotheque;
 import com.example.demo.repository.BibliothequeRepository;
 
-@Controller
+@RestController
 public class BiblioController {
     @Autowired
     BibliothequeRepository biblioRepository;
@@ -42,6 +43,7 @@ public class BiblioController {
     	b.setAdresse(adresse);
     	b.setNom(nom);
     	b.setVille(ville);
+    	biblioRepository.save(b);
     	
     	mav.addObject("nom", nom);
     	mav.setViewName("biblio");
