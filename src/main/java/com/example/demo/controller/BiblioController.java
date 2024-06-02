@@ -19,9 +19,9 @@ public class BiblioController {
     @Autowired
     BibliothequeRepository biblioRepository;
 
-    @GetMapping("/greeting")    
+    @GetMapping("/biblio")    
     public String afficherBiblio() {
-        return "produit";
+        return "biblio";
     }
 
     @PostMapping("/biblio")
