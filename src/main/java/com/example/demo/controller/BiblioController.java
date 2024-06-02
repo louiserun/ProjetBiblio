@@ -29,6 +29,7 @@ public class BiblioController {
         List<Bibliotheque> biblio = biblioRepository.findByNom(nom);
         ModelAndView mav = new ModelAndView("biblio");
         mav.addObject("biblioList", biblio);
+    	mav.setViewName("biblio");
         return mav;
     }
     
@@ -43,7 +44,7 @@ public class BiblioController {
     	b.setVille(ville);
     	
     	mav.addObject("nom", nom);
-    	mav.setViewName("addBiblio");
+    	mav.setViewName("biblio");
         return mav;
     } 
 }
