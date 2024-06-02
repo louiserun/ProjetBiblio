@@ -26,24 +26,8 @@ public class BiblioController {
     
     @GetMapping("/biblio")
     public String afficherBiblio() {
-    	return "Biblio";
+    	return "biblio";
     }
 
-    @PostMapping("/biblio")
-    public List<Bibliotheque> getBiblioByNom(@PathVariable("nom") String nom) {
-    	return biblioRepository.findByNom(nom);
-    }
-	
-    
-    @PostMapping("/biblio")
-    public Bibliotheque save(@RequestBody Bibliotheque biblio ) {
-    	biblioRepository.save(biblio);
-		return biblio;
-    }
-    
-    @DeleteMapping("/biblio/{id}")
-    public String delete(@RequestBody Bibliotheque biblio) {
-    	biblioRepository.delete(biblio);
-    	return "supprimé avec succès";
-    }
+   
 }
