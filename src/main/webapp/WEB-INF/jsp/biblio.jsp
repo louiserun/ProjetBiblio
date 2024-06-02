@@ -57,7 +57,7 @@
 </style>
 </head>
 <body>
-	<form method="post" action="/getBiblioByNom">
+	<form method="post" action="/getBiblio">
         <label for="nom">Nom de la bibliothèque:</label>
         <input type="text" id="nom" name="nom">
         <button type="submit">Rechercher</button>
@@ -80,7 +80,7 @@
             </tr>
         </tbody>
     </table>
-	<form method="post" action="/biblio">
+	<form method="post" action="/addBiblio">
 	    <h2>Saisie de bibliothèque</h2>
 	    <label for="nom">Nom:</label><br>
 	    <input type="text" id="nom" name="nom"><br>

@@ -24,11 +24,26 @@ public class BiblioController {
         return "biblio";
     }
 
-    @PostMapping("/biblio")
+    @PostMapping("/getBiblio")
     public ModelAndView getBiblioByNom(@RequestParam String nom) {
         List<Bibliotheque> biblio = biblioRepository.findByNom(nom);
         ModelAndView mav = new ModelAndView("biblio");
         mav.addObject("biblioList", biblio);
         return mav;
     }
+    
+    @PostMapping("/addBiblio")
+    public ModelAndView addBiblio(@RequestParam String nom,
+    		@RequestParam String ville,
+    		@RequestParam String adresse) {
+    	ModelAndView mav = new ModelAndView();
+    	Bibliotheque b = new Bibliotheque();
+    	b.setAdresse(adresse);
+    	b.setNom(nom);
+    	b.setVille(ville);
+    	
+    	mav.addObject("nom", nom);
+    	mav.setViewName("addBiblio");
+        return mav;
+    } 
 }
