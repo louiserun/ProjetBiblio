@@ -16,7 +16,7 @@ import jakarta.persistence.OneToMany;
 public class Bibliotheque {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_produit;
+	private int id_biblio;
 	private String nom;
 	private String ville;
 	private String adresse;

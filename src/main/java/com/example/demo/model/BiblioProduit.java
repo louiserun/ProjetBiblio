@@ -13,12 +13,12 @@ public class BiblioProduit {
 
 	 @ManyToOne
 	 @MapsId("produitId")
-	 @JoinColumn(name = "produit_id")
+	 @JoinColumn(name = "id_produit")
 	 Produit produit;
 
 	 @ManyToOne
 	 @MapsId("biblioId")
-	 @JoinColumn(name = "id_produit")
+	 @JoinColumn(name = "id_biblio")
 	 Bibliotheque biblio;
 
 	 int nb_exemplaire;

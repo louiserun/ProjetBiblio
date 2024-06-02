@@ -1,72 +1,131 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des produits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
+        h2 {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #333;
+        }
 
-    form {
-        width: 300px;
-        margin: 20px auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-    label {
-        font-weight: bold;
-    }
-    
-    h2{
-    	margin-top: 0;
-    }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
 
-    input[type="text"] {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        box-sizing: border-box;
-    }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-    input[type="submit"] {
-        width: 100%;
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
+        tr.category-row {
+            background-color: #4CAF50;
+            color: white;
+        }
 
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-</style>
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .add-button {
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
- 
-    <form action=post action="/produit">
-    	<h2>Saisie de produit</h2>
-        <label for="titre">Titre:</label><br>
-        <input type="text" id="titre" name="titre"><br>
-        
-        <label for="isbn">ISBN:</label><br>
-        <input type="text" id="isbn" name="isbn"><br><br>
-        
-        <input type="submit" value="Envoyer">
-    </form>
+
+<h2 style="color: #4CAF50;">Livres</h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Titre</th>
+	        <th>ISBN</th>
+	        <th>Auteur</th>
+	        <th>Édition</th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="livre" items="${livre}">
+            <tr>
+                <td colspan="2">${livre.titre}</td>   
+                <td ${livre.ISBN}></td>
+                <td>${livre.auteur}</td>
+                <td ${livre.edition}></td>
+            </tr>
+        </c:forEach>
+    </tbody>
+</table>
+
+<form action="/ajouterLivre" method="post" class="add-button">
+    <button type="submit">Ajouter un livre</button>
+</form>
+
+<h2 style="color: #007bff;">DVDs</h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Titre</th>
+            <th>ISBN</th>
+            <th>Réalisateur</th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="dvd" items="${dvd}">
+            <tr>
+            	<td colspan="2">${dvd.titre}</td>
+                <td ${dvd.ISBN}></td>
+                <td>${dvd.realisateur}</td>
+            </tr>
+        </c:forEach>
+    </tbody>
+</table>
+
+<form action="/ajouterDvd" method="post" class="add-button">
+    <button type="submit">Ajouter un DVD</button>
+</form>
+
 </body>
 </html>

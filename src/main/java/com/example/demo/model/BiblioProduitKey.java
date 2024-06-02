@@ -7,7 +7,7 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class BiblioProduitKey implements Serializable {
-	@Column(name = "id_produit")
+	@Column(name = "id_biblio")
 	int biblioId;
 	
 	@Column(name = "id_produit")

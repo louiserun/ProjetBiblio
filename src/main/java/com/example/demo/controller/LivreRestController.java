@@ -13,21 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Livre;
 import com.example.demo.model.Produit;
 import com.example.demo.repository.LivreRepository;
-/*
+
 //@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class LivreRestController {
 	@Autowired LivreRepository livreRepository;
 	
-	@GetMapping("/livre")
+	@GetMapping("/Rlivre")
     public List<Livre> getProduit() {
         return livreRepository.findAll();
     }
 	
-	@PostMapping("/livre")
+	@PostMapping("/Rlivre")
 	public Livre addOrUpdateLivre (@RequestBody Livre livre) {
 		livreRepository.save(livre);
 		return livre;
 	}
 }
-*/

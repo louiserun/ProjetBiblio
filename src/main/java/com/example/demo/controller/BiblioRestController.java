@@ -19,33 +19,32 @@ import com.example.demo.model.Bibliotheque;
 import com.example.demo.model.Produit;
 import com.example.demo.repository.BibliothequeRepository;
 import com.example.demo.service.BibliothequeService;
-/**
+
 //@CrossOrigin(origins = "http://127.0.0.1:4200")
 @RestController
 public class BiblioRestController {
     @Autowired BibliothequeRepository biblioRepository;
     
-    @GetMapping("/biblio")
+    @GetMapping("/Rbiblio")
     public List<Bibliotheque> getBiblio() {
         return biblioRepository.findAll();
     }
 
-    @GetMapping("/biblio/{nom}")
+    @GetMapping("/Rbiblio/{nom}")
     public List<Bibliotheque> getBiblioByNom(@PathVariable("nom") String nom) {
     	return biblioRepository.findByNom(nom);
     }
 	
     
-    @PostMapping("/biblio")
+    @PostMapping("/Rbiblio")
     public Bibliotheque save(@RequestBody Bibliotheque biblio ) {
     	biblioRepository.save(biblio);
 		return biblio;
     }
     
-    @DeleteMapping("/biblio/{id}")
+    @DeleteMapping("/Rbiblio/{id}")
     public String delete(@RequestBody Bibliotheque biblio) {
     	biblioRepository.delete(biblio);
     	return "supprimé avec succès";
     }
 }
-**/

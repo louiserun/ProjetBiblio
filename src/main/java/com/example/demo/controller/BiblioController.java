@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.demo.model.Bibliotheque;
 import com.example.demo.repository.BibliothequeRepository;
 
-@RestController
+@Controller
 public class BiblioController {
     @Autowired
     BibliothequeRepository biblioRepository;
