@@ -14,7 +14,7 @@ public class ProduitController {
 	@Autowired ProduitRepository produitRepository;
 
 	@GetMapping("/getDvd/{idBiblio}")
-	public String affiche(@PathVariable("id") String id) {
+	public String affiche(@PathVariable("idBiblio") int id) {
 		return "produit";
 	}
 }
