@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="com.example.demo.model.Bibliotheque" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -73,11 +74,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="bibliotheque : ${bibliotheques}">
-                <td th:text="${bibliotheque.nom}"></td>
-                <td th:text="${bibliotheque.ville}"></td>
-                <td th:text="${bibliotheque.adresse}"></td>
+        <% for (Bibliotheque bibliotheque : biblioList) { %>
+            <tr>
+                <td><%= bibliotheque.getNom() %></td>
+                <td><%= bibliotheque.getVille() %></td>
+                <td><%= bibliotheque.getAdresse() %></td>
             </tr>
+        <% } %>
         </tbody>
     </table>
 	<form method="post" action="/addBiblio">
