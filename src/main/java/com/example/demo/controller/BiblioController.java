@@ -29,8 +29,7 @@ public class BiblioController {
     public ModelAndView getBiblioByNom(@RequestParam String nom) {
         List<Bibliotheque> biblio = biblioRepository.findByNom(nom);
         ModelAndView mav = new ModelAndView("biblio");
-        mav.addObject("biblioList", biblio);
-    	mav.setViewName("biblio");
+        mav.addObject("biblioList", biblio); // Ajoutez la liste avec la clé "biblioList"
         return mav;
     }
     
@@ -46,7 +45,6 @@ public class BiblioController {
     	biblioRepository.save(b);
     	
     	mav.addObject("nom", nom);
-    	mav.setViewName("biblio");
-        return mav;
+    	return mav;
     } 
 }

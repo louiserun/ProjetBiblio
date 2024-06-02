@@ -40,6 +40,7 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
+<<<<<<< HEAD
 			<dependency>
 	    <groupId>jakarta.servlet.jsp.jstl</groupId>
 	    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -51,6 +52,8 @@
 	    <version>3.0.1</version>
 	</dependency>
 
+=======
+>>>>>>> f08e1bf1b80e9d63317835d29886fe6b91624ed2
 
 	</dependencies>
 

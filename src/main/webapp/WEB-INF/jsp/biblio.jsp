@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="com.example.demo.model.Bibliotheque" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -57,15 +58,43 @@
 </style>
 </head>
 <body>
-<form method="post" action="/biblio">
-    <h2>Saisie de bibliothèque</h2>
-    <label for="nom">Nom:</label><br>
-    <input type="text" id="nom" name="nom"><br>
+	<form method="post" action="/getBiblio">
+        <label for="nom">Nom de la bibliothèque:</label>
+        <input type="text" id="nom" name="nom">
+        <button type="submit">Rechercher</button>
+    </form>
     
-    <label for="ville">Ville:</label><br>
-    <input type="text" id="ville" name="ville"><br><br>
-    
-    <input type="submit" value="Envoyer">
-</form>
+    <h1>Liste des bibliothèques</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>Adresse</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% for (Bibliotheque bibliotheque : biblioList) { %>
+            <tr>
+                <td><%= bibliotheque.getNom() %></td>
+                <td><%= bibliotheque.getVille() %></td>
+                <td><%= bibliotheque.getAdresse() %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+	<form method="post" action="/addBiblio">
+	    <h2>Saisie de bibliothèque</h2>
+	    <label for="nom">Nom:</label><br>
+	    <input type="text" id="nom" name="nom"><br>
+	    
+	    <label for="ville">Ville:</label><br>
+	    <input type="text" id="ville" name="ville"><br><br>
+	    
+	   	<label for="adresse">Adresse:</label><br>
+	    <input type="text" id="adresse" name="adresse"><br><br>
+	    
+	    <input type="submit" value="Envoyer">
+	</form>
 </body>
 </html>
