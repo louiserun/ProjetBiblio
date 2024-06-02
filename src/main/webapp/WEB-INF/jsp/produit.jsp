@@ -77,25 +77,24 @@ head>
 </head>
 <body>
 
-<h2 style="color: #4CAF50;">Livres</h2>
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">Titre</th>
-	        <th>ISBN</th>
-	        <th>Auteur</th>
-	        <th>Édition</th>
-        </tr>
-    </thead>
+<h2>Livres</h2>
+<table border="1">
+    <tr>
+        <th>Titre</th>
+        <th>ISBN</th>
+        <th>Auteur</th>
+        <th>Édition</th>
+    </tr>
+    <!-- Boucle sur la liste des livres pour les afficher -->
     <tbody>
-        <c:forEach var="livre" items="${livre}">
+        <th:block th:each="livre : ${livre}">
             <tr>
-                <td colspan="2">${livre.titre}</td>   
-                <td ${livre.ISBN}></td>
+                <td>${livre.titre}</td>
+                <td>${livre.isbn}</td>
                 <td>${livre.auteur}</td>
-                <td ${livre.edition}></td>
+                <td>${livre.edition}</td>
             </tr>
-        </c:forEach>
+        </th:block>
     </tbody>
 </table>
 
@@ -103,23 +102,22 @@ head>
     <button type="submit">Ajouter un livre</button>
 </form>
 
-<h2 style="color: #007bff;">DVDs</h2>
-<table>
-    <thead>
-        <tr>
-            <th colspan="2">Titre</th>
-            <th>ISBN</th>
-            <th>Réalisateur</th>
-        </tr>
-    </thead>
+<h2>DVD</h2>
+<table border="1">
+    <tr>
+        <th>Titre</th>
+        <th>ISBN</th>
+        <th>Réalisateur</th>
+    </tr>
+    <!-- Boucle sur la liste des DVD pour les afficher -->
     <tbody>
-        <c:forEach var="dvd" items="${dvd}">
+        <th:block th:each="dvd : ${dvd}">
             <tr>
-            	<td colspan="2">${dvd.titre}</td>
-                <td ${dvd.ISBN}></td>
+                <td>${dvd.titre}</td>
+                <td>${dvd.isbn}</td>
                 <td>${dvd.realisateur}</td>
             </tr>
-        </c:forEach>
+        </th:block>
     </tbody>
 </table>
 
