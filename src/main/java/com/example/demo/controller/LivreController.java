@@ -21,12 +21,12 @@ public class LivreController {
 		return "addLivre";
 	}
 	
-	@PostMapping("/addLivre/{idBiblio}")
+	@PostMapping("/addLivre")
 	public RedirectView addDvd (@RequestParam String titre,
 	    		@RequestParam String isbn,
 	    		@RequestParam String auteur,
-	    		@RequestParam String edition,
-	    		@PathVariable("idBiblio") int id) {
+	    		@RequestParam String edition
+	    		) {
 			RedirectView r = new RedirectView("/produit");
 	    	Livre livre = new Livre();
 	    	

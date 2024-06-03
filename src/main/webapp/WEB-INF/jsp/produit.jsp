@@ -133,6 +133,7 @@
                 <td colspan="2">${dvd.titre}</td>
                 <td>${dvd.ISBN}</td>
                 <td>${dvd.realisateur}</td>
+                <td>${dvd.realisateur}</td>
             </tr>
         </c:forEach>
     </tbody>

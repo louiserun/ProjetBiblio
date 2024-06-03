@@ -73,9 +73,7 @@
             <label for="realisateur">Réalisateur:</label>
             <input type="text" id="realisateur" name="realisateur">
             <br>
-            <label for="nb_exemplaire">Nombre d'exemplaire:</label>
-            <input type="text" id="nb_exemplaire" name="nb_exemplaire" required>
-            <br>
+
             <button type="submit" action="/produit" method="get">Ajouter</button>
         </form>
     </div>
