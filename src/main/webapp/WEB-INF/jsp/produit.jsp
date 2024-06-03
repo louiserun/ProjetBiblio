@@ -20,6 +20,9 @@
             margin-top: 40px;
             font-size: 24px;
             color: #333;
+            text-align: center;
+            
+            
         }
 
         table {
@@ -73,10 +76,21 @@
             margin-top: 20px;
             display: inline-block;
         }
+
+        .return-button {
+            display: block;
+            margin-top: 40px;
+            border-radius: 4px;
+            
+        }
+
+        .return-button button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
-    <h1>Bienvenue à la bibliothèque</h1>
+    <h1>Bienvenue à la bibliothèque ${param.nom}</h1>
 
 <h2 style="color: #4CAF50;">Livres</h2>
 <table>
@@ -128,5 +142,10 @@
     <button type="submit">Ajouter un DVD</button>
 </form>
 
+<form action="/biblio" method="get" class="return-button">
+    <button type="submit">Retour</button>
+</form>
+
 </body>
 </html>
+

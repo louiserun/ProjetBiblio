@@ -28,7 +28,7 @@ public class ProduitController {
 	@GetMapping("/produit")
 	public ModelAndView affiche() {
 		ModelAndView mav = new ModelAndView();
-
+		
 		List<Dvd> dvd = dvdRepository.findAll();
 		List<Livre> livre = livreRepository.findAll();
 		mav.setViewName("produit");
@@ -36,4 +36,7 @@ public class ProduitController {
 		mav.addObject("livre", livre);
 		return mav;
 	}
+	
+	
+	
 }
