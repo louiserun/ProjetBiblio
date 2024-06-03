@@ -63,7 +63,7 @@
 <body>
     <div class="form-container">
         <h2>Ajouter un Livre</h2>
-        <form action="/addLivre/${idBiblio}" method="post">
+        <form action="/addLivre" method="post">
             <input type="hidden" id="idBiblio" name="idBiblio" value="${idBiblio}">
             <label for="titre">Titre:</label>
             <input type="text" id="titre" name="titre" required>
@@ -77,7 +77,7 @@
             <label for="edition">Edition:</label>
             <input type="text" id="edition" name="edition" required>
             <br>
-            <button type="submit">Ajouter</button>
+            <button type="submit" action="/produit" method="get">Ajouter</button>
         </form>
     </div>
 </body>

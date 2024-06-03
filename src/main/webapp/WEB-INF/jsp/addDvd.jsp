@@ -71,9 +71,9 @@
             <input type="text" id="isbn" name="isbn" required>
             <br>
             <label for="realisateur">Réalisateur:</label>
-            <input type="text" id="realisateur" name="realisateur" required>
+            <input type="text" id="realisateur" name="realisateur">
             <br>
-            <button type="submit">Ajouter</button>
+            <button type="submit" action="/produit" method="get">Ajouter</button>
         </form>
     </div>
 </body>

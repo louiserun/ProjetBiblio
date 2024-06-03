@@ -4,7 +4,7 @@
 
 <!DOCTYPE html>
 <html>
-head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des produits</title>
@@ -76,52 +76,55 @@ head>
     </style>
 </head>
 <body>
+    <h1>Bienvenue à la bibliothèque</h1>
 
-<h2>Livres</h2>
-<table border="1">
-    <tr>
-        <th>Titre</th>
-        <th>ISBN</th>
-        <th>Auteur</th>
-        <th>Édition</th>
-    </tr>
-    <!-- Boucle sur la liste des livres pour les afficher -->
+<h2 style="color: #4CAF50;">Livres</h2>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">Titre</th>
+	        <th>ISBN</th>
+	        <th>Auteur</th>
+	        <th>Édition</th>
+        </tr>
+    </thead>
     <tbody>
-        <th:block th:each="livre : ${livre}">
+        <c:forEach var="livre" items="${livre}">
             <tr>
-                <td>${livre.titre}</td>
-                <td>${livre.isbn}</td>
+                <td colspan="2">${livre.titre}</td>
+                <td>${livre.ISBN}</td>
                 <td>${livre.auteur}</td>
                 <td>${livre.edition}</td>
             </tr>
-        </th:block>
+        </c:forEach>
     </tbody>
 </table>
 
-<form action="/ajouterLivre" method="post" class="add-button">
+<form action="/addLivre" method="get" class="add-button">
     <button type="submit">Ajouter un livre</button>
 </form>
 
-<h2>DVD</h2>
-<table border="1">
-    <tr>
-        <th>Titre</th>
-        <th>ISBN</th>
-        <th>Réalisateur</th>
-    </tr>
-    <!-- Boucle sur la liste des DVD pour les afficher -->
+<h2 style="color: #007bff;">DVDs</h2>
+<table>
+    <thead style="color: #007bff">
+        <tr>
+            <th colspan="2">Titre</th>
+            <th> ISBN </th>
+            <th>Réalisateur</th>
+        </tr>
+    </thead>
     <tbody>
-        <th:block th:each="dvd : ${dvd}">
+        <c:forEach var="dvd" items="${dvd}">
             <tr>
-                <td>${dvd.titre}</td>
-                <td>${dvd.isbn}</td>
+                <td colspan="2">${dvd.titre}</td>
+                <td>${dvd.ISBN}</td>
                 <td>${dvd.realisateur}</td>
             </tr>
-        </th:block>
+        </c:forEach>
     </tbody>
 </table>
 
-<form action="/ajouterDvd" method="post" class="add-button">
+<form action="/addDvd" method="get" class="add-button">
     <button type="submit">Ajouter un DVD</button>
 </form>
 

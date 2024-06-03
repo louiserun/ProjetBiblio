@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo.model.Dvd;
 import com.example.demo.repository.DvdRepository;
@@ -21,18 +22,16 @@ public class DvdController {
 	}
 	
 	@PostMapping("/addDvd")
-	public String addDvd (@RequestParam String titre,
+	public RedirectView addDvd (@RequestParam String titre,
 	    		@RequestParam String isbn,
-	    		@RequestParam String realisateur,
-	    		@PathVariable("idBiblio") int id) {
-	    	//ModelAndView mav = new ModelAndView();
+	    		@RequestParam String realisateur) {
+			RedirectView r = new RedirectView("/produit");
 	    	Dvd dvd = new Dvd();
 	    	
 	    	dvd.setTitre(titre);
 	    	dvd.setISBN(isbn);
 	    	dvd.setRealisateur(realisateur);
 	    	dvdRepository.save(dvd);
-	    System.out.println("produit ajouté");
-		return "produit";
+	    return r;
 	}
 }

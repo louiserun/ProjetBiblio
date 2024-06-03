@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.example.demo.model.Bibliotheque;
 import com.example.demo.repository.BibliothequeRepository;
@@ -21,30 +22,45 @@ public class BiblioController {
     BibliothequeRepository biblioRepository;
 
     @GetMapping("/biblio")    
-    public String afficherBiblio() {
-        return "biblio";
+    public ModelAndView afficherBiblio() {
+    	List<Bibliotheque> biblio = biblioRepository.findAll();
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("biblio", biblio); 
+        mav.setViewName("biblio");
+        return mav;
     }
 
     @PostMapping("/getBiblio")
     public ModelAndView getBiblioByNom(@RequestParam String nom) {
         List<Bibliotheque> biblio = biblioRepository.findByNom(nom);
         ModelAndView mav = new ModelAndView("biblio");
-        mav.addObject("biblioList", biblio); // Ajoutez la liste avec la clé "biblioList"
+        mav.addObject("biblio", biblio); // Ajoutez la liste avec la clé "biblioList"
         return mav;
+    }
+    @GetMapping("/addBiblio")
+    public String addBibblio() {
+    	return "addBiblio";
     }
     
     @PostMapping("/addBiblio")
-    public ModelAndView addBiblio(@RequestParam String nom,
+    public RedirectView addBiblio(@RequestParam String nom,
     		@RequestParam String ville,
     		@RequestParam String adresse) {
-    	ModelAndView mav = new ModelAndView();
+    	RedirectView red = new RedirectView("/biblio");
+    	
     	Bibliotheque b = new Bibliotheque();
     	b.setAdresse(adresse);
     	b.setNom(nom);
     	b.setVille(ville);
     	biblioRepository.save(b);
     	
-    	mav.addObject("nom", nom);
-    	return mav;
+    	//mav.addObject("nom", nom);
+    	return red;
     } 
+    
+    @PostMapping ("/goProduit")
+    public RedirectView goProduit () {
+    	RedirectView mav = new RedirectView("/biblio");
+    	return mav;
+    }
 }
